@@ -203,7 +203,7 @@ class HScript extends SScript
 	{
 		#if LUA_ALLOWED
 		funk.addLocalCallback("runHaxeCode", function(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):Dynamic {
-			var retVal:SCall = null;
+			var retVal:TeaCall = null;
 			#if (SScript >= "3.0.0")
 			initHaxeModuleCode(funk, codeToRun);
 			if(varsToBring != null)
@@ -283,17 +283,12 @@ class HScript extends SScript
 	}
 
 	#if (SScript >= "3.0.3")
-	override public function destroy()
+	override public function kill()
 	{
 		origin = null;
 		parentLua = null;
 
-		super.destroy();
-	}
-	#else
-	public function destroy()
-	{
-		active = false;
+		super.kill();
 	}
 	#end
 }

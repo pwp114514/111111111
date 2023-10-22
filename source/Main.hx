@@ -12,6 +12,7 @@ import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
 import states.TitleState;
+import backend.SUtil;
 
 #if linux
 import lime.graphics.Image;
